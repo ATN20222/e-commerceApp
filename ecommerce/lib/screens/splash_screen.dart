@@ -19,31 +19,28 @@ class SplashScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 254, 254, 254),
-      body: Center(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "Shopping Zone",
-              style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.w700,
-                  fontFamily: 'Montserrat'),
-            ),
-            LottieBuilder.asset("assets/animations/SplashScreenAnimation.json"),
-            SizedBox(
-              height: 10,
-            ),
-            Container(
-              child: Column(children: [
-                LottieBuilder.asset(
-                  "assets/animations/Welcome.json",
-                  height: 50,
-                )
-              ]),
-            ),
-          ],
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              LottieBuilder.asset(
+                  "assets/animations/SplashScreenAnimation.json"),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                child: Column(children: [
+                  LottieBuilder.asset(
+                    "assets/animations/Welcome.json",
+                    height: 50,
+                  )
+                ]),
+              ),
+            ],
+          ),
         ),
       ),
     );
