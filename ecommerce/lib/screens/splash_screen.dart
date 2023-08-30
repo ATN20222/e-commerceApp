@@ -19,9 +19,9 @@ class SplashScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 254, 254, 254),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Center(
+      body: Center(
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -31,14 +31,10 @@ class SplashScreen extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              Container(
-                child: Column(children: [
-                  LottieBuilder.asset(
-                    "assets/animations/Welcome.json",
-                    height: 50,
-                  )
-                ]),
-              ),
+              LottieBuilder.asset(
+                "assets/animations/Welcome.json",
+                height: 50,
+              )
             ],
           ),
         ),
