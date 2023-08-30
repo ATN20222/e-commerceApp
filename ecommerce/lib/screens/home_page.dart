@@ -1,4 +1,5 @@
 import 'package:ecommerce/widgets/category_item.dart';
+import 'package:ecommerce/widgets/product_card.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -227,11 +228,46 @@ class HomePage extends StatelessWidget {
                     height: 10,
                   ),
                   Row(
-                    children: [],
+                    children: [CategoryItem(type: 'smart phone')],
                   ),
                 ]),
               ),
               //End Category
+              SizedBox(
+                height: 30,
+              ),
+
+              Text(
+                "Featuered Products",
+                style: TextStyle(fontWeight: FontWeight.w600),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    height: 30,
+                  ),
+                  ProductCard(
+                      imageUrl: 'assets/images/PhoneBrand.jpg',
+                      title: 'iphone 15',
+                      price: 600),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  ProductCard(
+                      imageUrl: 'assets/images/PhoneBrand.jpg',
+                      title: 'smart phone',
+                      price: 30),
+                ],
+              ),
+
+              SizedBox(
+                height: 400,
+              )
             ]),
           ),
         ),
