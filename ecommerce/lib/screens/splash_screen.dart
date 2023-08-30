@@ -8,7 +8,6 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     void Nabigate() {
-      // should be pushReplacement
       Navigator.push(context, MaterialPageRoute(
         builder: (context) {
           return MainScreen();
