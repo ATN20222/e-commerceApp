@@ -15,27 +15,35 @@ class SplashScreen extends StatelessWidget {
       ));
     }
 
-    Future.delayed(Duration(seconds: 5), Nabigate);
+    // Future.delayed(Duration(seconds: 4), Nabigate);
 
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 254, 254, 254),
-      body: Center(
-        child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              LottieBuilder.asset(
-                  "assets/animations/SplashScreenAnimation.json"),
-              SizedBox(
-                height: 10,
-              ),
-              LottieBuilder.asset(
-                "assets/animations/Welcome.json",
-                height: 50,
-              )
-            ],
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/SplashBackground.jpg'),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Center(
+          child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                LottieBuilder.asset(
+                    "assets/animations/SplashScreenAnimation.json"),
+                SizedBox(
+                  height: 10,
+                ),
+                LottieBuilder.asset(
+                  "assets/animations/Welcome.json",
+                  height: 50,
+                )
+              ],
+            ),
           ),
         ),
       ),
