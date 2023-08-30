@@ -65,7 +65,7 @@ class FavouriteProductCard extends StatelessWidget {
                   ),
                   SizedBox(width: 100),
                   IconButton(
-                    color: AppColors.orange,
+                    color: AppColors.black,
                     onPressed: () {},
                     icon: Icon(
                       Icons.favorite_rounded,

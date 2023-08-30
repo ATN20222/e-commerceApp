@@ -97,6 +97,16 @@ class ProductCard extends StatelessWidget {
           Container(
             height: 240,
             alignment: Alignment.bottomCenter,
+            // child: IconButton(
+            //     onPressed: () {},
+            //     highlightColor: Colors.black45,
+            //     icon: Icon(Icons.shopping_bag_outlined, color: Colors.white),
+            //     color: Colors.black,
+            //     style: IconButton.styleFrom(
+            //       shape: CircleBorder(),
+            //       backgroundColor: Colors.black,
+            //     )),
+
             child: FloatingActionButton(
               backgroundColor: Colors.black,
               elevation: 0,
