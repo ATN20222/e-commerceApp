@@ -8,6 +8,7 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     void Nabigate() {
+      // should be pushReplacement
       Navigator.push(context, MaterialPageRoute(
         builder: (context) {
           return MainScreen();
@@ -34,14 +35,19 @@ class SplashScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 LottieBuilder.asset(
-                    "assets/animations/SplashScreenAnimation.json"),
-                SizedBox(
-                  height: 10,
+                  "assets/animations/SplashScreenAnimation.json",
+                ),
+                Text(
+                  "Swift Shop,Smart Buy",
+                  style: TextStyle(
+                    fontFamily: "logo",
+                    fontSize: 20,
+                  ),
                 ),
                 LottieBuilder.asset(
                   "assets/animations/Welcome.json",
                   height: 50,
-                )
+                ),
               ],
             ),
           ),
