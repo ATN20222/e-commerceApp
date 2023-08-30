@@ -15,7 +15,7 @@ class SplashScreen extends StatelessWidget {
       ));
     }
 
-    // Future.delayed(Duration(seconds: 4), Nabigate);
+    Future.delayed(Duration(seconds: 4), Nabigate);
 
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 254, 254, 254),
