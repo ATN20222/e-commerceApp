@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 import '../constants/app_colors.dart';
 
-class OnCartIconButton extends StatelessWidget {
+class OnTabIconButton extends StatelessWidget {
   final Widget icon;
-  final void Function() onCartPressed;
-  const OnCartIconButton(
-      {super.key, required this.icon, required this.onCartPressed});
+  final void Function() onIconPressed;
+  const OnTabIconButton(
+      {super.key, required this.icon, required this.onIconPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class OnCartIconButton extends StatelessWidget {
         shadowColor: AppColors.orange,
         shape: const CircleBorder(),
       ),
-      onPressed: onCartPressed,
+      onPressed: onIconPressed,
       icon: icon,
     );
   }

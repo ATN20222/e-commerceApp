@@ -1,5 +1,5 @@
 import 'package:ecommerce/screens/home_page.dart';
-import 'package:ecommerce/screens/setting_screen.dart';
+import 'package:ecommerce/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'favourite_page.dart';
@@ -13,12 +13,12 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  int PageIndex = 0;
-  final List<Widget> TabList = [
-    HomePage2(),
-    FavouritePage(),
-    HomePage(),
-    const SettingScreen(),
+  int pageIndex = 0;
+  final List<Widget> tabList = [
+    const HomePage2(),
+    const FavouritePage(),
+    // HomePage(),
+    const SettingsPage(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class _MainScreenState extends State<MainScreen> {
       body: SafeArea(
         child: Stack(
           children: [
-            TabList.elementAt(PageIndex),
+            tabList.elementAt(pageIndex),
             Padding(
               padding: const EdgeInsets.all(30),
               child: Align(
@@ -53,11 +53,11 @@ class _MainScreenState extends State<MainScreen> {
                       unselectedItemColor: Colors.grey,
                       showSelectedLabels: true,
                       showUnselectedLabels: false,
-                      backgroundColor: Colors.black,
-                      currentIndex: PageIndex,
+                      backgroundColor: Colors.white,
+                      currentIndex: pageIndex,
                       onTap: (int index) {
                         setState(() {
-                          PageIndex = index;
+                          pageIndex = index;
                         });
                       },
                       items: [
@@ -71,11 +71,11 @@ class _MainScreenState extends State<MainScreen> {
                           icon: Icon(Icons.favorite),
                           label: 'Fav',
                         ),
-                        BottomNavigationBarItem(
-                          backgroundColor: Colors.grey[200],
-                          icon: Icon(Icons.shopping_bag),
-                          label: 'Cart',
-                        ),
+                        // BottomNavigationBarItem(
+                        //   backgroundColor: Colors.grey[200],
+                        //   icon: Icon(Icons.shopping_bag),
+                        //   label: 'Cart',
+                        // ),
                         BottomNavigationBarItem(
                           backgroundColor: Colors.grey[200],
                           icon: Icon(Icons.settings),

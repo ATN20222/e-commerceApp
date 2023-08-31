@@ -130,19 +130,19 @@ class ProductCard2 extends StatelessWidget {
                   ),
                   Visibility(
                     visible: product.inCart == false,
-                    replacement: OnCartIconButton(
-                      onCartPressed: () {
+                    replacement: OnTabIconButton(
+                      onIconPressed: () {
                         onCartTapped?.call(false);
                       },
                       icon: const Icon(
                         Icons.remove,
                       ),
                     ),
-                    child: OnCartIconButton(
+                    child: OnTabIconButton(
                       icon: const Icon(
                         Icons.add_shopping_cart,
                       ),
-                      onCartPressed: () {
+                      onIconPressed: () {
                         onCartTapped?.call(true);
                       },
                     ),

@@ -62,36 +62,45 @@ class SearchScreen extends ConsumerWidget {
               child: ref.watch(filterdProducts).isEmpty
                   ? const Center(child: Text('No results found.'))
                   : ListView.separated(
+                      padding: EdgeInsets.symmetric(horizontal: 40),
                       separatorBuilder: (context, index) {
                         return const SizedBox(height: 10);
                       },
                       itemCount: ref.watch(filterdProducts).length,
                       itemBuilder: (context, index) {
                         Product product = ref.watch(filterdProducts)[index];
-                        return ProductCard2(
-                          product: product,
-                          onCartTapped: (status) {
-                            if (status) {
-                              ref
-                                  .read(productsStateNotifierProvider.notifier)
-                                  .addToCart(product);
-                            } else {
-                              ref
-                                  .read(productsStateNotifierProvider.notifier)
-                                  .removeToCart(product);
-                            }
-                          },
-                          onFavTapped: (status) {
-                            if (status) {
-                              ref
-                                  .read(productsStateNotifierProvider.notifier)
-                                  .removeToFavourite(product);
-                            } else {
-                              ref
-                                  .read(productsStateNotifierProvider.notifier)
-                                  .addToFavourite(product);
-                            }
-                          },
+                        return SizedBox(
+                          height: 280,
+                          // width: 200,
+                          child: ProductCard2(
+                            product: product,
+                            onFavTapped: (status) {
+                              if (status) {
+                                ref
+                                    .read(
+                                        productsStateNotifierProvider.notifier)
+                                    .removeToFavourite(product);
+                              } else {
+                                ref
+                                    .read(
+                                        productsStateNotifierProvider.notifier)
+                                    .addToFavourite(product);
+                              }
+                            },
+                            onCartTapped: (status) {
+                              if (status) {
+                                ref
+                                    .read(
+                                        productsStateNotifierProvider.notifier)
+                                    .addToCart(product);
+                              } else {
+                                ref
+                                    .read(
+                                        productsStateNotifierProvider.notifier)
+                                    .removeToCart(product);
+                              }
+                            },
+                          ),
                         );
                       },
                     ),

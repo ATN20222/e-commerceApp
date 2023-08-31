@@ -13,7 +13,7 @@ class ThemeManager {
 
   ThemeData getDarkTheme() => ThemeData.dark().copyWith(
         useMaterial3: true,
-        scaffoldBackgroundColor: Color.fromARGB(255, 113, 104, 65),
+        scaffoldBackgroundColor: Color.fromARGB(255, 65, 113, 111),
         buttonTheme: ButtonThemeData(
           buttonColor: Color.fromARGB(255, 161, 150, 100),
         ),
@@ -33,7 +33,7 @@ class ThemeManager {
           color: Colors.black,
         ),
         appBarTheme: AppBarTheme(
-          backgroundColor: Color.fromARGB(255, 156, 115, 14),
+          backgroundColor: Color.fromARGB(255, 13, 13, 14),
         ),
       );
 }

@@ -125,26 +125,7 @@ class HomePage2 extends StatelessWidget {
                 ),
               ),
               //End Const Text After header
-              SizedBox(height: 20),
-              // Start Search Field
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(15.0),
-                  border: Border.all(color: Colors.black),
-                ),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    hintText: 'Search',
-                    contentPadding:
-                        EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
-                    border: InputBorder.none,
-                    prefixIcon: Icon(Icons.search, color: Colors.black),
-                  ),
-                ),
-              ),
 
-              //End Search Field
               SizedBox(height: 20),
 
               //Start Offers

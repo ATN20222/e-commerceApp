@@ -1,5 +1,6 @@
 import 'package:ecommerce/screens/home_page2.dart';
 import 'package:ecommerce/screens/main_screen.dart';
+import 'package:ecommerce/screens/welcome_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
@@ -14,33 +15,32 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
   @override
+  void initState() {
+    super.initState();
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+    Future.delayed(
+      const Duration(seconds: 3),
+      () {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (context) => const WelcomePage(),
+          ),
+        );
+      },
+    );
+  }
+
+  @override
+  void dispose() {
+    SystemChrome.setEnabledSystemUIMode(
+      SystemUiMode.manual,
+      overlays: SystemUiOverlay.values,
+    );
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    @override
-    @override
-    void initState() {
-      super.initState();
-      SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
-      Future.delayed(
-        const Duration(seconds: 5),
-        () {
-          Navigator.of(context).pushReplacement(
-            MaterialPageRoute(
-              builder: (context) => const HomePage2(),
-            ),
-          );
-        },
-      );
-    }
-
-    @override
-    void dispose() {
-      SystemChrome.setEnabledSystemUIMode(
-        SystemUiMode.manual,
-        overlays: SystemUiOverlay.values,
-      );
-      super.dispose();
-    }
-
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 254, 254, 254),
       body: Container(
