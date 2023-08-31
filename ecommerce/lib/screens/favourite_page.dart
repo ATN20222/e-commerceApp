@@ -28,30 +28,33 @@ class FavouritePage extends ConsumerWidget {
           textAlign: TextAlign.center,
         ),
       ),
-      child: ListView.separated(
-        itemBuilder: (context, index) {
-          var product = ref.read(favCourtsProvider)[index];
-          return FavouriteProductCard(
-            product: product,
-            onFavTapped: (status) {
-              if (status) {
-                ref
-                    .read(productsStateNotifierProvider.notifier)
-                    .removeToFavourite(product);
-              } else {
-                ref
-                    .read(productsStateNotifierProvider.notifier)
-                    .addToFavourite(product);
-              }
-            },
-          );
-        },
-        itemCount: ref.watch(favCourtsProvider).length,
-        separatorBuilder: (context, index) {
-          return const SizedBox(
-            height: 15,
-          );
-        },
+      child: Container(
+        padding: EdgeInsets.only(top: 20),
+        child: ListView.separated(
+          itemBuilder: (context, index) {
+            var product = ref.read(favCourtsProvider)[index];
+            return FavouriteProductCard(
+              product: product,
+              onFavTapped: (status) {
+                if (status) {
+                  ref
+                      .read(productsStateNotifierProvider.notifier)
+                      .removeToFavourite(product);
+                } else {
+                  ref
+                      .read(productsStateNotifierProvider.notifier)
+                      .addToFavourite(product);
+                }
+              },
+            );
+          },
+          itemCount: ref.watch(favCourtsProvider).length,
+          separatorBuilder: (context, index) {
+            return const SizedBox(
+              height: 15,
+            );
+          },
+        ),
       ),
     );
   }
