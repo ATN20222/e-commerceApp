@@ -38,8 +38,7 @@ class _MainScreenState extends State<MainScreen> {
                           color: Colors.grey.withOpacity(0.5),
                           spreadRadius: 2,
                           blurRadius: 5,
-                          offset: Offset(
-                              0, 3), // changes the position of the shadow
+                          offset: Offset(0, 3),
                         ),
                       ],
                       borderRadius: BorderRadius.all(
@@ -65,16 +64,20 @@ class _MainScreenState extends State<MainScreen> {
                         BottomNavigationBarItem(
                           icon: Icon(Icons.home),
                           label: 'Home',
+                          backgroundColor: Colors.grey[200],
                         ),
                         BottomNavigationBarItem(
+                          backgroundColor: Colors.grey[200],
                           icon: Icon(Icons.favorite),
                           label: 'Fav',
                         ),
                         BottomNavigationBarItem(
+                          backgroundColor: Colors.grey[200],
                           icon: Icon(Icons.shopping_bag),
                           label: 'Cart',
                         ),
                         BottomNavigationBarItem(
+                          backgroundColor: Colors.grey[200],
                           icon: Icon(Icons.settings),
                           label: 'Settings',
                         ),
