@@ -40,7 +40,7 @@ class CartScreen extends ConsumerWidget {
           ),
           subtitle: Text(
             "\$${ref.watch(totalAmountProvider)}",
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.white,
               fontFamily: "display",
               fontSize: 18,
@@ -52,7 +52,7 @@ class CartScreen extends ConsumerWidget {
             style: ElevatedButton.styleFrom(
               backgroundColor: AppColors.orange,
             ),
-            child: Text(
+            child: const Text(
               "Check Out",
               style: TextStyle(
                 color: AppColors.black,
