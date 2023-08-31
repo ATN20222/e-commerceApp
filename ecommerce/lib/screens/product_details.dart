@@ -125,6 +125,34 @@ class ProductDetails extends StatelessWidget {
                   ),
                 ),
 
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10.0, bottom: 10.0),
+                      child: Flexible(
+                        child: Text(
+                          'category :',
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: const Color.fromARGB(255, 0, 0, 0),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                          top: 0, left: 10.0, bottom: 10.0),
+                      child: Text(
+                        ' ${product.category}',
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.grey[700],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
                 Padding(
                   padding: const EdgeInsets.only(left: 10.0, bottom: 10.0),
                   child: Flexible(
@@ -137,7 +165,6 @@ class ProductDetails extends StatelessWidget {
                     ),
                   ),
                 ),
-
                 Padding(
                   padding: const EdgeInsets.only(left: 10.0, bottom: 10.0),
                   child: Text(
