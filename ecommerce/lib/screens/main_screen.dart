@@ -1,7 +1,9 @@
 import 'package:ecommerce/screens/home_page.dart';
+import 'package:ecommerce/screens/setting_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'favourite_page.dart';
+import 'home_page2.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -13,10 +15,10 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int PageIndex = 0;
   final List<Widget> TabList = [
-    HomePage(),
+    HomePage2(),
     FavouritePage(),
     HomePage(),
-    HomePage(),
+    const SettingScreen(),
   ];
   @override
   Widget build(BuildContext context) {

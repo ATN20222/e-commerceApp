@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 
 import '../models/product.dart';
 
-class FavouriteProductCard extends StatelessWidget {
+class CartProduct extends StatelessWidget {
   final Product product;
-  final void Function(bool)? onFavTapped;
+  final void Function(bool)? onCartTapped;
 
-  const FavouriteProductCard({
+  const CartProduct({
     super.key,
     required this.product,
-    this.onFavTapped,
+    this.onCartTapped,
   });
 
   @override
@@ -66,7 +66,7 @@ class FavouriteProductCard extends StatelessWidget {
                 children: [
                   Text(
                     "\$ ${product.price}",
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontFamily: "display",
                       fontSize: 18,
                       fontWeight: FontWeight.w400,
@@ -74,27 +74,31 @@ class FavouriteProductCard extends StatelessWidget {
                   ),
                   const SizedBox(width: 100),
                   Visibility(
-                    visible: product.isFav == true,
+                    visible: product.inCart == false,
                     replacement: InkWell(
                       onTap: () {
                         debugPrint(
                             "press on ${product.isFav} fav ${product.id}");
-                        onFavTapped?.call(false);
+                        onCartTapped?.call(false);
                       },
                       child: const Icon(
-                        Icons.favorite_border,
-                        color: Colors.white,
+                        Icons.remove,
+                        color: Colors.black,
                       ),
                     ),
                     child: InkWell(
                       onTap: () {
-                        debugPrint(
-                            "press on ${product.isFav} fav ${product.id}");
-                        onFavTapped?.call(true);
+                        onCartTapped?.call(true);
                       },
-                      child: const Icon(
-                        Icons.favorite,
-                        color: Colors.red,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.black,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: const Icon(
+                          Icons.add_shopping_cart_outlined,
+                          color: Colors.red,
+                        ),
                       ),
                     ),
                   ),

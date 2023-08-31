@@ -174,7 +174,7 @@ class HomePage extends StatelessWidget {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20.0),
                             ),
-                            primary: Colors.black,
+                            backgroundColor: Colors.black,
                             textStyle: TextStyle(color: Colors.white),
                           ),
                           child: Text(
@@ -259,9 +259,10 @@ class HomePage extends StatelessWidget {
                     width: 10,
                   ),
                   ProductCard(
-                      imageUrl: 'assets/images/PhoneBrand.jpg',
-                      title: 'smart phone',
-                      price: 30),
+                    imageUrl: 'assets/images/PhoneBrand.jpg',
+                    title: 'smart phone',
+                    price: 30,
+                  ),
                 ],
               ),
 

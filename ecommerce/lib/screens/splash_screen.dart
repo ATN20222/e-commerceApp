@@ -1,22 +1,45 @@
+import 'package:ecommerce/screens/home_page2.dart';
 import 'package:ecommerce/screens/main_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
   @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen>
+    with SingleTickerProviderStateMixin {
+  @override
   Widget build(BuildContext context) {
-    void Nabigate() {
-      // should be pushReplacement
-      Navigator.push(context, MaterialPageRoute(
-        builder: (context) {
-          return MainScreen();
+    @override
+    @override
+    void initState() {
+      super.initState();
+      SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
+      Future.delayed(
+        const Duration(seconds: 5),
+        () {
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(
+              builder: (context) => const HomePage2(),
+            ),
+          );
         },
-      ));
+      );
     }
 
-    Future.delayed(Duration(seconds: 4), Nabigate);
+    @override
+    void dispose() {
+      SystemChrome.setEnabledSystemUIMode(
+        SystemUiMode.manual,
+        overlays: SystemUiOverlay.values,
+      );
+      super.dispose();
+    }
 
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 254, 254, 254),

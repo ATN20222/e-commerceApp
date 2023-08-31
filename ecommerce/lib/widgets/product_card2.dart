@@ -1,0 +1,140 @@
+import 'package:ecommerce/constants/app_colors.dart';
+import 'package:ecommerce/models/product.dart';
+import 'package:flutter/material.dart';
+
+import 'on_cart_icon_button.dart';
+
+class ProductCard2 extends StatelessWidget {
+  final Product product;
+  final void Function(bool)? onFavTapped;
+  final void Function(bool)? onCartTapped;
+
+  const ProductCard2({
+    Key? key,
+    required this.product,
+    this.onFavTapped,
+    this.onCartTapped,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    return Container(
+      width: screenWidth / 2.4,
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            blurRadius: 5,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Stack(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
+                child: Image.network(
+                  '${product.thumbnail}',
+                  fit: BoxFit.fitHeight,
+                  height: 120,
+                ),
+              ),
+              Container(
+                alignment: Alignment.topRight,
+                child: Visibility(
+                  visible: product.isFav == true,
+                  replacement: InkWell(
+                    onTap: () {
+                      debugPrint("press on ${product.isFav} fav ${product.id}");
+                      onFavTapped?.call(false);
+                    },
+                    child: const Icon(
+                      Icons.favorite_border,
+                      color: Colors.amberAccent,
+                    ),
+                  ),
+                  child: InkWell(
+                    onTap: () {
+                      debugPrint("press on ${product.isFav} fav ${product.id}");
+                      onFavTapped?.call(true);
+                    },
+                    child: const Icon(
+                      Icons.favorite,
+                      color: Colors.red,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 20),
+          SizedBox(
+            width: 150,
+            child: Text(
+              product.title,
+              style: TextStyle(
+                overflow: TextOverflow.ellipsis,
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                children: [
+                  Text(
+                    '\$${product.price}',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.grey[700],
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      const Icon(Icons.star_outline),
+                      Text(
+                        '4.6',
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.grey[700],
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              Visibility(
+                visible: product.inCart == false,
+                replacement: OnCartIconButton(
+                  onCartPressed: () {
+                    onCartTapped?.call(false);
+                  },
+                  icon: const Icon(
+                    Icons.remove,
+                  ),
+                ),
+                child: OnCartIconButton(
+                  icon: const Icon(
+                    Icons.add_shopping_cart,
+                  ),
+                  onCartPressed: () {
+                    onCartTapped?.call(true);
+                  },
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
