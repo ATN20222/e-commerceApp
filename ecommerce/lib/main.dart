@@ -1,3 +1,4 @@
+import 'package:ecommerce/screens/login_screen.dart';
 import 'package:ecommerce/screens/main_screen.dart';
 import 'package:ecommerce/screens/settings_screen.dart';
 import 'package:ecommerce/screens/splash_screen.dart';
@@ -24,7 +25,8 @@ class MyApp extends ConsumerWidget {
       theme: ref.watch(isDarkModeProvider)
           ? ThemeManager.shared.getDarkTheme()
           : ThemeManager.shared.getLightTheme(),
-      home: MainScreen(),
+      // home: MainScreen(),
+      home: LoginScreen(),
     );
   }
 }
