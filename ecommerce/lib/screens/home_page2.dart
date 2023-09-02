@@ -1,5 +1,8 @@
+import 'package:ecommerce/dataprovider/remote/firebasehelper.dart';
+import 'package:ecommerce/providers/user_data.dart';
 import 'package:ecommerce/screens/cart_screen.dart';
 import 'package:ecommerce/widgets/category_item.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
 
@@ -61,7 +64,7 @@ class HomePage2 extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                "Anton Abdalla",
+                                UserData.username,
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.w700),
@@ -184,21 +187,21 @@ class HomePage2 extends StatelessWidget {
                 ),
               ),
               //End Offers
-              SizedBox(height: 20),
-              //Start Category
-              Container(
-                child: Column(
-                  children: [
-                    const Text(
-                      "Categories",
-                      style: TextStyle(fontWeight: FontWeight.w600),
-                    ),
-                    const SizedBox(height: 10),
-                    CategoryItem(type: 'smart phone'),
-                  ],
-                ),
-              ),
-              //End Category
+              // SizedBox(height: 20),
+              // //Start Category
+              // Container(
+              //   child: Column(
+              //     children: [
+              //       const Text(
+              //         "Categories",
+              //         style: TextStyle(fontWeight: FontWeight.w600),
+              //       ),
+              //       const SizedBox(height: 10),
+              //       CategoryItem(type: 'smart phone'),
+              //     ],
+              //   ),
+              // ),
+              // //End Category
               SizedBox(height: 30),
 
               Row(

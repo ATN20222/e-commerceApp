@@ -1,3 +1,4 @@
+import 'package:ecommerce/dataprovider/remote/firebasehelper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -72,8 +73,7 @@ class SettingsPage extends ConsumerWidget {
           Icons.logout,
           'Log out',
           () {
-            // Functionality for Log out option
-            // Add your code here
+            FireBaseHelper().signOut();
           },
           isLogout: true,
         ),

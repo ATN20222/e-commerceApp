@@ -118,7 +118,7 @@ class ProductCard2 extends StatelessWidget {
                         children: [
                           const Icon(Icons.star_outline),
                           Text(
-                            '4.6',
+                            '${product.rating}',
                             style: TextStyle(
                               fontSize: 14,
                               color: Colors.grey[700],
