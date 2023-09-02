@@ -93,12 +93,12 @@ class SettingsPage extends ConsumerWidget {
       onTap: onPressed,
       leading: Icon(
         icon,
-        color: Colors.red,
+        color: Colors.black,
       ),
       title: Text(
         title,
         style: TextStyle(
-          color: Colors.red,
+          color: Colors.black,
         ),
       ),
       trailing: switchWidget ?? Icon(Icons.arrow_forward_ios),

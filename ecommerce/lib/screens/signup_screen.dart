@@ -254,6 +254,8 @@ class _SignUpState extends State<SignUp> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
+  bool pass = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -311,6 +313,17 @@ class _SignUpState extends State<SignUp> {
                           icons: Icons.mail),
                       CustomTextFormField(
                           textController: passwordController,
+                          obscureText: pass,
+                          suffixIcon: IconButton(
+                            icon: !pass
+                                ? Icon(Icons.remove_red_eye_outlined)
+                                : Icon(Icons.visibility_off),
+                            onPressed: () {
+                              setState(() {
+                                pass = !pass;
+                              });
+                            },
+                          ),
                           hintText: "password",
                           errorText: " Please enter your password ",
                           icons: Icons.lock),

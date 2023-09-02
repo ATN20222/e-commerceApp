@@ -101,7 +101,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       hintText: 'Password',
                       prefixIcon: Icon(Icons.password),
                       suffixIcon: IconButton(
-                        icon: Icon(Icons.remove_red_eye_outlined),
+                        icon: !pass
+                            ? Icon(Icons.remove_red_eye_outlined)
+                            : Icon(Icons.visibility_off),
                         onPressed: () {
                           setState(() {
                             pass = !pass;
