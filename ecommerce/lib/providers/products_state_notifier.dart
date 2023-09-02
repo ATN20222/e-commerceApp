@@ -1,3 +1,5 @@
+import 'package:ecommerce/providers/custom_api_service.dart';
+import 'package:ecommerce/providers/user_data.dart';
 import 'package:ecommerce/services/product_service.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -10,8 +12,10 @@ final productsStateNotifierProvider =
 });
 
 class ProductsNotifier extends StateNotifier<List<Product>> {
+  final customApiService = CustomApiService();
+
   ProductsNotifier() : super([]) {
-    getData();
+    getData().then((value) => getFav());
   }
 
   Future<void> getData() async {
@@ -24,7 +28,22 @@ class ProductsNotifier extends StateNotifier<List<Product>> {
     state = products;
   }
 
+  Future<void> getFav() async {
+    UserData.Favourites = await customApiService.getUserFavorites();
+    UserData.Favourites.sort();
+    print(UserData.Favourites);
+    state = [
+      for (final product in state)
+        if (UserData.Favourites.contains(product.id.toString()))
+          product.copyWith(isFav: true)
+        else
+          product
+    ];
+  }
+
   void addToFavourite(Product selectedProduct) {
+    customApiService.addUserFavorite(
+        UserData.email, selectedProduct.id.toString());
     state = [
       for (final product in state)
         if (product.id == selectedProduct.id)
@@ -34,7 +53,12 @@ class ProductsNotifier extends StateNotifier<List<Product>> {
     ];
   }
 
-  void removeToFavourite(Product selectedProduct) {
+  void removeToFavourite(Product selectedProduct) async {
+    UserData.Favourites = await customApiService.getUserFavorites();
+    customApiService.RemoveUserFavorite(
+        UserData.email, selectedProduct.id.toString());
+    UserData.Favourites.removeWhere(
+        (element) => element == selectedProduct.id.toString());
     state = [
       for (final product in state)
         if (product.id == selectedProduct.id)

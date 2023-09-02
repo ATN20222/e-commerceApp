@@ -1,4 +1,5 @@
 import 'package:ecommerce/dataprovider/remote/firebasehelper.dart';
+import 'package:ecommerce/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -33,25 +34,25 @@ class SettingsPage extends ConsumerWidget {
       padding: EdgeInsets.only(top: 40),
       children: [
         buildSettingOption(
-          Icons.support,
-          'Support',
-          () {
+          icon: Icons.support,
+          title: 'Support',
+          onPressed: () {
             // Functionality for Support option
             // Add your code here
           },
         ),
         buildSettingOption(
-          Icons.info,
-          'About',
-          () {
+          icon: Icons.info,
+          title: 'About',
+          onPressed: () {
             // Functionality for About option
             // Add your code here
           },
         ),
         buildSettingOption(
-          Icons.dark_mode,
-          'Dark Mode',
-          () {
+          icon: Icons.dark_mode,
+          title: 'Dark Mode',
+          onPressed: () {
             // Toggle dark mode
           },
           switchWidget: Switch(
@@ -62,43 +63,42 @@ class SettingsPage extends ConsumerWidget {
           ),
         ),
         buildSettingOption(
-          Icons.language,
-          'Languages',
-          () {
+          icon: Icons.language,
+          title: 'Languages',
+          onPressed: () {
             // Functionality for Languages option
             // Add your code here
           },
         ),
         buildSettingOption(
-          Icons.logout,
-          'Log out',
-          () {
-            FireBaseHelper().signOut();
+          icon: Icons.logout,
+          title: 'Log out',
+          onPressed: () async {
+            Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => LoginScreen()));
+            await FireBaseHelper().signOut();
           },
-          isLogout: true,
         ),
       ],
     );
   }
 
-  Widget buildSettingOption(
-    IconData icon,
-    String title,
-    VoidCallback onPressed, {
-    bool isLogout = false,
+  Widget buildSettingOption({
+    required VoidCallback onPressed,
+    required IconData icon,
+    required String title,
     Widget? switchWidget,
   }) {
     return ListTile(
-      onTap:
-          onPressed, // Assign the provided onPressed callback to the ListTile's onTap
+      onTap: onPressed,
       leading: Icon(
         icon,
-        color: isLogout ? Colors.red : null,
+        color: Colors.red,
       ),
       title: Text(
         title,
         style: TextStyle(
-          color: isLogout ? Colors.red : null,
+          color: Colors.red,
         ),
       ),
       trailing: switchWidget ?? Icon(Icons.arrow_forward_ios),

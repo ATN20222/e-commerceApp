@@ -1,8 +1,10 @@
+import 'package:ecommerce/providers/custom_api_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class FireBaseHelper {
   FirebaseAuth auth = FirebaseAuth.instance;
+  final customApiService = CustomApiService();
 
   String getCurrentUsername() {
     User? user = FirebaseAuth.instance.currentUser;
@@ -16,7 +18,7 @@ class FireBaseHelper {
   String getCurrentUserId() {
     User? user = FirebaseAuth.instance.currentUser;
     if (user != null) {
-      return user.uid;
+      return user.uid.hashCode.toString();
     } else {
       return '';
     }
@@ -25,7 +27,7 @@ class FireBaseHelper {
   String getCurrentUserEmail() {
     User? user = FirebaseAuth.instance.currentUser;
     if (user != null) {
-      return user.uid;
+      return user.email.toString();
     } else {
       return '';
     }
@@ -36,7 +38,10 @@ class FireBaseHelper {
       UserCredential user = await auth.createUserWithEmailAndPassword(
           email: email, password: password);
       await auth.currentUser!.updateDisplayName(name);
-
+      if (user.user?.uid.hashCode != null) {
+        customApiService.addUser(
+            name, user.user!.uid.hashCode.toString(), email);
+      }
       await auth.currentUser!.reload();
       if (user.user != null) return user.user;
     } on FirebaseAuthException catch (e) {
