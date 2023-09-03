@@ -1,4 +1,6 @@
+import 'package:ecommerce/dataprovider/remote/firebasehelper.dart';
 import 'package:ecommerce/screens/login_screen.dart';
+import 'package:ecommerce/screens/main_screen.dart';
 import 'package:ecommerce/screens/signup_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -65,7 +67,8 @@ class WelcomePage extends StatelessWidget {
                   },
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.white),
-                    padding: MaterialStateProperty.all(const EdgeInsets.all(10)),
+                    padding:
+                        MaterialStateProperty.all(const EdgeInsets.all(10)),
                   ),
                   child: const Text(
                     'Sign Up',
@@ -73,6 +76,23 @@ class WelcomePage extends StatelessWidget {
                   ),
                 ),
               ],
+            ),
+            Text("Or"),
+            ElevatedButton(
+              onPressed: () async {
+                try {
+                  final user = await FireBaseHelper().signInWithGoogle();
+                  if (user != null) {
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (context) => const MainScreen()));
+                  } else {
+                    print('Sign-in with Google failed.');
+                  }
+                } catch (e) {
+                  print('Error signing in with Google: $e');
+                }
+              },
+              child: Text('Sign in with Google'),
             ),
           ],
         ),

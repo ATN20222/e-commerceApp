@@ -12,7 +12,7 @@ class ThemeManager {
 
   ThemeData getDarkTheme() => ThemeData.dark().copyWith(
         useMaterial3: true,
-        scaffoldBackgroundColor: const Color.fromARGB(255, 65, 113, 111),
+        scaffoldBackgroundColor: Color.fromARGB(255, 183, 183, 183),
         buttonTheme: const ButtonThemeData(
           buttonColor: Color.fromARGB(255, 161, 150, 100),
         ),

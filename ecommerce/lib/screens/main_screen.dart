@@ -31,7 +31,7 @@ class _MainScreenState extends State<MainScreen> {
               child: Align(
                 alignment: const Alignment(0.0, 1.0),
                 child: Container(
-                  width: 240,
+                  width: 300,
                   decoration: BoxDecoration(
                       boxShadow: [
                         BoxShadow(
