@@ -234,7 +234,6 @@
 //   }
 // }
 import 'package:ecommerce/dataprovider/remote/firebasehelper.dart';
-import 'package:ecommerce/screens/home_page2.dart';
 import 'package:ecommerce/screens/login_screen.dart';
 import 'package:ecommerce/screens/main_screen.dart';
 import 'package:ecommerce/widgets/CustomButton.dart';
@@ -271,15 +270,15 @@ class _SignUpState extends State<SignUp> {
                 elevation: 0,
                 onPressed: () {
                   Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => LoginScreen()));
+                      MaterialPageRoute(builder: (context) => const LoginScreen()));
                 },
-                child: Icon(
+                child: const Icon(
                   Icons.arrow_back,
                 ),
               ),
               Center(
                 child: Column(children: [
-                  Text(
+                  const Text(
                     'Sign Up Now',
                     style: TextStyle(
                       color: Colors.black,
@@ -316,8 +315,8 @@ class _SignUpState extends State<SignUp> {
                           obscureText: pass,
                           suffixIcon: IconButton(
                             icon: !pass
-                                ? Icon(Icons.remove_red_eye_outlined)
-                                : Icon(Icons.visibility_off),
+                                ? const Icon(Icons.remove_red_eye_outlined)
+                                : const Icon(Icons.visibility_off),
                             onPressed: () {
                               setState(() {
                                 pass = !pass;
@@ -346,7 +345,7 @@ class _SignUpState extends State<SignUp> {
       showDialog(
           context: context,
           builder: (context) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           });
@@ -358,7 +357,7 @@ class _SignUpState extends State<SignUp> {
           .then((value) {
         if (value is User) {
           Navigator.of(context).pushReplacement(
-              MaterialPageRoute(builder: (context) => MainScreen()));
+              MaterialPageRoute(builder: (context) => const MainScreen()));
         } else if (value is String) {
           Navigator.of(context).pop();
           ScaffoldMessenger.of(context)

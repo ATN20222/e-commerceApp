@@ -1,7 +1,4 @@
 import 'package:ecommerce/providers/products_state_notifier.dart';
-import 'package:ecommerce/screens/cart_screen.dart';
-import 'package:ecommerce/widgets/cart_product.dart';
-import 'package:ecommerce/widgets/product_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -62,7 +59,7 @@ class SearchScreen extends ConsumerWidget {
               child: ref.watch(filterdProducts).isEmpty
                   ? const Center(child: Text('No results found.'))
                   : ListView.separated(
-                      padding: EdgeInsets.symmetric(horizontal: 40),
+                      padding: const EdgeInsets.symmetric(horizontal: 40),
                       separatorBuilder: (context, index) {
                         return const SizedBox(height: 10);
                       },

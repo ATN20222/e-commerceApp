@@ -1,6 +1,5 @@
 import 'package:ecommerce/providers/custom_api_service.dart';
 import 'package:ecommerce/providers/user_data.dart';
-import 'package:ecommerce/services/product_service.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../models/product.dart';

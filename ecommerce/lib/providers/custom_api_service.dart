@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:ecommerce/providers/user_data.dart';
 
@@ -26,7 +25,7 @@ class CustomApiService {
   }
 
   Future<Map<String, dynamic>> fetchDataByName(String email) async {
-    print("email " + email);
+    print("email $email");
     try {
       final response = await _dio
           .get('https://64f3185eedfa0459f6c64a42.mockapi.io/api/v1/users/');

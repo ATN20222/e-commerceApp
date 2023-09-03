@@ -1,3 +1,5 @@
+import 'package:ecommerce/screens/login_screen.dart';
+import 'package:ecommerce/screens/signup_screen.dart';
 import 'package:flutter/material.dart';
 
 class WelcomePage extends StatelessWidget {
@@ -10,54 +12,64 @@ class WelcomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
+            const Text(
               'Welcome to our e-commerce store!',
               style: TextStyle(
                 fontSize: 24.0,
                 fontFamily: "logo",
               ),
             ),
-            SizedBox(height: 10.0),
+            const SizedBox(height: 10.0),
             Image.asset('assets/images/opening.jpg'),
-            SizedBox(height: 10.0),
-            Text(
+            const SizedBox(height: 10.0),
+            const Text(
               'Start shopping now!',
               style: TextStyle(
                 fontSize: 18.0,
                 fontFamily: "display",
               ),
             ),
-            SizedBox(height: 10.0),
+            const SizedBox(height: 10.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 TextButton(
                   onPressed: () {
-                    //TODO go to SignIn page
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const LoginScreen(),
+                      ),
+                    );
                   },
-                  child: Text(
-                    'Sign In',
-                    style: TextStyle(color: Colors.white),
-                  ),
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.black),
                     padding: MaterialStateProperty.all(
-                      EdgeInsets.symmetric(horizontal: 16),
+                      const EdgeInsets.symmetric(horizontal: 16),
                     ),
+                  ),
+                  child: const Text(
+                    'Sign In',
+                    style: TextStyle(color: Colors.white),
                   ),
                 ),
                 const SizedBox(width: 10),
                 TextButton(
                   onPressed: () {
-                    //TODO go to SignUp page
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SignUp(),
+                      ),
+                    );
                   },
-                  child: Text(
-                    'Sign Up',
-                    style: TextStyle(color: Colors.black),
-                  ),
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.white),
-                    padding: MaterialStateProperty.all(EdgeInsets.all(10)),
+                    padding: MaterialStateProperty.all(const EdgeInsets.all(10)),
+                  ),
+                  child: const Text(
+                    'Sign Up',
+                    style: TextStyle(color: Colors.black),
                   ),
                 ),
               ],

@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../providers/user_data.dart';
+
 final isDarkModeProvider = StateNotifierProvider<DarkModeNotifier, bool>((ref) {
   return DarkModeNotifier();
 });
@@ -15,12 +17,13 @@ class DarkModeNotifier extends StateNotifier<bool> {
 
   Future<void> _loadIsDarkMode() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    state = prefs.getBool('isDarkMode') ?? false;
+
+    state = prefs.getBool('isDarkMode${UserData.id}') ?? false;
   }
 
   void toggleDarkMode(bool newValue) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setBool('isDarkMode', newValue);
+    await prefs.setBool('isDarkMode${UserData.id}', newValue);
     state = newValue;
   }
 }
@@ -31,30 +34,22 @@ class SettingsPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return ListView(
-      padding: EdgeInsets.only(top: 40),
+      padding: const EdgeInsets.only(top: 40),
       children: [
         buildSettingOption(
           icon: Icons.support,
           title: 'Support',
-          onPressed: () {
-            // Functionality for Support option
-            // Add your code here
-          },
+          onPressed: () {},
         ),
         buildSettingOption(
           icon: Icons.info,
           title: 'About',
-          onPressed: () {
-            // Functionality for About option
-            // Add your code here
-          },
+          onPressed: () {},
         ),
         buildSettingOption(
           icon: Icons.dark_mode,
           title: 'Dark Mode',
-          onPressed: () {
-            // Toggle dark mode
-          },
+          onPressed: () {},
           switchWidget: Switch(
             value: ref.watch(isDarkModeProvider),
             onChanged: (newMode) {
@@ -65,17 +60,14 @@ class SettingsPage extends ConsumerWidget {
         buildSettingOption(
           icon: Icons.language,
           title: 'Languages',
-          onPressed: () {
-            // Functionality for Languages option
-            // Add your code here
-          },
+          onPressed: () {},
         ),
         buildSettingOption(
           icon: Icons.logout,
           title: 'Log out',
           onPressed: () async {
             Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (context) => LoginScreen()));
+                MaterialPageRoute(builder: (context) => const LoginScreen()));
             await FireBaseHelper().signOut();
           },
         ),
@@ -97,11 +89,11 @@ class SettingsPage extends ConsumerWidget {
       ),
       title: Text(
         title,
-        style: TextStyle(
+        style: const TextStyle(
           color: Colors.black,
         ),
       ),
-      trailing: switchWidget ?? Icon(Icons.arrow_forward_ios),
+      trailing: switchWidget ?? const Icon(Icons.arrow_forward_ios),
     );
   }
 }

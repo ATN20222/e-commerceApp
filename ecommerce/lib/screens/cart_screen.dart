@@ -139,7 +139,7 @@ class CartScreen extends ConsumerWidget {
               contentPadding: const EdgeInsets.symmetric(horizontal: 16),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20)),
-              title: Text(
+              title: const Text(
                 "Total",
                 style: TextStyle(
                   color: AppColors.orange,

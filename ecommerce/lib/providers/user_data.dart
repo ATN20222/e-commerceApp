@@ -1,5 +1,4 @@
 import 'package:ecommerce/dataprovider/remote/firebasehelper.dart';
-import 'package:ecommerce/models/product.dart';
 import 'package:ecommerce/providers/custom_api_service.dart';
 
 class UserData {

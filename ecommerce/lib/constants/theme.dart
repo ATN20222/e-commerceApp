@@ -1,4 +1,3 @@
-import 'package:ecommerce/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class ThemeManager {
@@ -13,8 +12,8 @@ class ThemeManager {
 
   ThemeData getDarkTheme() => ThemeData.dark().copyWith(
         useMaterial3: true,
-        scaffoldBackgroundColor: Color.fromARGB(255, 65, 113, 111),
-        buttonTheme: ButtonThemeData(
+        scaffoldBackgroundColor: const Color.fromARGB(255, 65, 113, 111),
+        buttonTheme: const ButtonThemeData(
           buttonColor: Color.fromARGB(255, 161, 150, 100),
         ),
         textTheme: const TextTheme(
@@ -29,10 +28,10 @@ class ThemeManager {
             fontWeight: FontWeight.bold,
           ),
         ),
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: Colors.black,
         ),
-        appBarTheme: AppBarTheme(
+        appBarTheme: const AppBarTheme(
           backgroundColor: Color.fromARGB(255, 13, 13, 14),
         ),
       );

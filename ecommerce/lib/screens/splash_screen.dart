@@ -1,5 +1,3 @@
-import 'package:ecommerce/screens/home_page2.dart';
-import 'package:ecommerce/screens/main_screen.dart';
 import 'package:ecommerce/screens/welcome_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -42,9 +40,9 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 254, 254, 254),
+      backgroundColor: const Color.fromARGB(255, 254, 254, 254),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/images/SplashBackground.jpg'),
             fit: BoxFit.cover,
@@ -60,7 +58,7 @@ class _SplashScreenState extends State<SplashScreen>
                 LottieBuilder.asset(
                   "assets/animations/SplashScreenAnimation.json",
                 ),
-                Text(
+                const Text(
                   "Swift Shop,Smart Buy",
                   style: TextStyle(
                     fontFamily: "logo",

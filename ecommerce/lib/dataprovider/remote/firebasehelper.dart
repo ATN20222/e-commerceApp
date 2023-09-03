@@ -1,6 +1,5 @@
 import 'package:ecommerce/providers/custom_api_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 
 class FireBaseHelper {
   FirebaseAuth auth = FirebaseAuth.instance;
@@ -45,9 +44,11 @@ class FireBaseHelper {
       await auth.currentUser!.reload();
       if (user.user != null) return user.user;
     } on FirebaseAuthException catch (e) {
-      if (e.code == "email-already-in-use")
+      if (e.code == "email-already-in-use") {
         return "this email is already used";
-      else if (e.code == "weak-password") return "password is too weak";
+      } else if (e.code == "weak-password") {
+        return "password is too weak";
+      }
     }
   }
 

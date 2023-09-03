@@ -1,4 +1,3 @@
-import 'package:ecommerce/providers/user_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -30,7 +29,7 @@ class FavouritePage extends ConsumerWidget {
         ),
       ),
       child: Container(
-        padding: EdgeInsets.only(top: 20),
+        padding: const EdgeInsets.only(top: 20),
         child: ListView.separated(
           itemBuilder: (context, index) {
             var product = ref.read(favCourtsProvider)[index];

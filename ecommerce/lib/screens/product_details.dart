@@ -123,7 +123,7 @@ class ProductDetails extends StatelessWidget {
               flex: 3,
               child: Container(
                 padding: const EdgeInsets.only(left: 32, top: 16),
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color.fromARGB(255, 223, 232, 234),
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(30),
@@ -134,8 +134,8 @@ class ProductDetails extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "${product.title}",
-                      style: TextStyle(
+                      product.title,
+                      style: const TextStyle(
                         fontSize: 18,
                         fontFamily: "display",
                         color: Colors.black,
@@ -144,7 +144,7 @@ class ProductDetails extends StatelessWidget {
                     const SizedBox(height: 5),
                     Text(
                       '\$${product.price}',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 23,
                         fontFamily: "display",
                         color: Colors.grey,
@@ -168,7 +168,7 @@ class ProductDetails extends StatelessWidget {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        const Text(
                           'Category :',
                           style: TextStyle(
                             fontSize: 18,
@@ -188,7 +188,7 @@ class ProductDetails extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 5),
-                    Text(
+                    const Text(
                       'Description',
                       style: TextStyle(
                         fontSize: 18,
@@ -200,8 +200,8 @@ class ProductDetails extends StatelessWidget {
                     SizedBox(
                       width: 320,
                       child: Text(
-                        '${product.description}',
-                        style: TextStyle(
+                        product.description,
+                        style: const TextStyle(
                           fontSize: 15,
                           fontFamily: "display",
                           color: Colors.grey,

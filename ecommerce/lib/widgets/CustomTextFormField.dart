@@ -27,7 +27,7 @@ class CustomTextFormField extends StatelessWidget {
         decoration: InputDecoration(
           suffixIcon: suffixIcon,
           filled: true,
-          fillColor: Color.fromARGB(255, 231, 231, 231),
+          fillColor: const Color.fromARGB(255, 231, 231, 231),
           hintText: hintText,
           prefixIcon: Icon(
             icons,
@@ -35,19 +35,19 @@ class CustomTextFormField extends StatelessWidget {
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(30.0),
-            borderSide: BorderSide(
+            borderSide: const BorderSide(
               color: Color.fromARGB(215, 172, 166, 216),
             ),
           ),
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(30.0),
-            borderSide: BorderSide(
+            borderSide: const BorderSide(
               color: Color.fromARGB(214, 156, 4, 4),
             ),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(30.0),
-            borderSide: BorderSide(
+            borderSide: const BorderSide(
               color: Color(0xD8DBD7FA),
             ),
           ),

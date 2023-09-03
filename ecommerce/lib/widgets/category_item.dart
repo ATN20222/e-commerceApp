@@ -3,26 +3,24 @@ import 'package:flutter/material.dart';
 class CategoryItem extends StatelessWidget {
   final String type;
 
-  CategoryItem({Key? key, required this.type}) : super(key: key);
+  const CategoryItem({Key? key, required this.type}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {},
       style: ElevatedButton.styleFrom(
-        padding: EdgeInsets.zero,
+        foregroundColor: Colors.black, padding: EdgeInsets.zero, backgroundColor: Colors.transparent,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
         ),
-        primary: Colors.transparent,
         elevation: 0,
-        onPrimary: Colors.black,
       ),
       child: Container(
         decoration: BoxDecoration(
           color: Colors.grey[200],
           borderRadius: BorderRadius.circular(15),
-          image: DecorationImage(
+          image: const DecorationImage(
             image: AssetImage('assets/images/SmartPhone.jpg'),
             fit: BoxFit.fill,
           ),
@@ -37,7 +35,7 @@ class CategoryItem extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 type,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.black,
                 ),
               ),

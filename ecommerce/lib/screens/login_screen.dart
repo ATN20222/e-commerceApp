@@ -3,7 +3,6 @@ import 'package:ecommerce/screens/main_screen.dart';
 import 'package:ecommerce/screens/signup_screen.dart';
 import 'package:ecommerce/widgets/CustomButton.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -20,6 +19,7 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
   bool pass = true;
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
@@ -36,10 +36,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     width: 180,
                     height: 180,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 80,
                   ),
-                  Text(
+                  const Text(
                     'Sign in your account',
                     style: TextStyle(
                       color: Color.fromARGB(220, 158, 158, 158),
@@ -47,7 +47,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
                   TextFormField(
@@ -59,34 +59,34 @@ class _LoginScreenState extends State<LoginScreen> {
                     },
                     controller: emailController,
                     decoration: InputDecoration(
-                      border: OutlineInputBorder(),
+                      border: const OutlineInputBorder(),
                       filled: true,
                       hintText: 'Email',
-                      prefixIcon: Icon(Icons.email),
+                      prefixIcon: const Icon(Icons.email),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: Color.fromARGB(255, 158, 158, 158),
                           width: 1.0,
                         ),
                       ),
                       disabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: Colors.white,
                           width: 1.0,
                         ),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: Colors.white,
                           width: 1.0,
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(height: 30),
+                  const SizedBox(height: 30),
                   TextFormField(
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -99,11 +99,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     decoration: InputDecoration(
                       filled: true,
                       hintText: 'Password',
-                      prefixIcon: Icon(Icons.password),
+                      prefixIcon: const Icon(Icons.password),
                       suffixIcon: IconButton(
                         icon: !pass
-                            ? Icon(Icons.remove_red_eye_outlined)
-                            : Icon(Icons.visibility_off),
+                            ? const Icon(Icons.remove_red_eye_outlined)
+                            : const Icon(Icons.visibility_off),
                         onPressed: () {
                           setState(() {
                             pass = !pass;
@@ -112,37 +112,37 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: Color.fromARGB(255, 158, 158, 158),
                           width: 1.0,
                         ),
                       ),
                       disabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: Colors.white,
                           width: 1.0,
                         ),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: Colors.white,
                           width: 1.0,
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(height: 60),
+                  const SizedBox(height: 60),
                   CustomButton(text: "Login", onTapAction: signInAction),
-                  SizedBox(height: 40),
+                  const SizedBox(height: 20),
                   GestureDetector(
                     child: MaterialButton(
                       onPressed: () {
                         Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(builder: (context) => SignUp()));
+                            MaterialPageRoute(builder: (context) => const SignUp()));
                       },
-                      child: Text(
+                      child: const Text(
                         'Sign Up',
                         style: TextStyle(
                             color: Color.fromARGB(255, 211, 191, 11),
@@ -165,7 +165,7 @@ class _LoginScreenState extends State<LoginScreen> {
       showDialog(
           context: context,
           builder: (context) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           });
@@ -175,7 +175,7 @@ class _LoginScreenState extends State<LoginScreen> {
           .then((value) {
         if (value is User) {
           Navigator.of(context).pushReplacement(
-              MaterialPageRoute(builder: (context) => MainScreen()));
+              MaterialPageRoute(builder: (context) => const MainScreen()));
         } else if (value is String) {
           Navigator.of(context).pop();
           ScaffoldMessenger.of(context)

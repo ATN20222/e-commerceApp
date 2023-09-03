@@ -26,7 +26,7 @@ class ProductCard extends StatelessWidget {
             BoxShadow(
               color: Colors.black.withOpacity(0.1),
               blurRadius: 5,
-              offset: Offset(0, 2),
+              offset: const Offset(0, 2),
             ),
           ],
         ),
@@ -37,9 +37,9 @@ class ProductCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 ClipRRect(
-                  borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
+                  borderRadius: const BorderRadius.vertical(top: Radius.circular(10)),
                   child: Image.asset(
-                    '${imageUrl}',
+                    imageUrl,
                     fit: BoxFit.fitHeight,
                     height: 150,
                   ),
@@ -48,7 +48,7 @@ class ProductCard extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
                     title,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),
@@ -68,7 +68,7 @@ class ProductCard extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 8.0, bottom: 8.0),
                   child: Row(
                     children: [
-                      Icon(Icons.star_outline),
+                      const Icon(Icons.star_outline),
                       Text(
                         '4.6',
                         style: TextStyle(
@@ -92,7 +92,7 @@ class ProductCard extends StatelessWidget {
                   splashColor: Colors.black54,
                   onPressed: () {},
                   child:
-                      Icon(Icons.favorite_border_outlined, color: Colors.black),
+                      const Icon(Icons.favorite_border_outlined, color: Colors.black),
                 ),
               ]),
             ),
@@ -108,7 +108,7 @@ class ProductCard extends StatelessWidget {
                   focusColor: Colors.transparent,
                   splashColor: Colors.black54,
                   onPressed: () {},
-                  child: Icon(
+                  child: const Icon(
                     Icons.shopping_bag_outlined,
                     color: Colors.white,
                   ),

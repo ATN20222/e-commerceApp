@@ -1,4 +1,3 @@
-import 'package:ecommerce/screens/home_page.dart';
 import 'package:ecommerce/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -30,22 +29,23 @@ class _MainScreenState extends State<MainScreen> {
             Padding(
               padding: const EdgeInsets.all(30),
               child: Align(
-                alignment: Alignment(0.0, 1.0),
+                alignment: const Alignment(0.0, 1.0),
                 child: Container(
+                  width: 240,
                   decoration: BoxDecoration(
                       boxShadow: [
                         BoxShadow(
                           color: Colors.grey.withOpacity(0.5),
                           spreadRadius: 2,
                           blurRadius: 5,
-                          offset: Offset(0, 3),
+                          offset: const Offset(0, 3),
                         ),
                       ],
-                      borderRadius: BorderRadius.all(
+                      borderRadius: const BorderRadius.all(
                         Radius.circular(30),
                       )),
                   child: ClipRRect(
-                    borderRadius: BorderRadius.all(
+                    borderRadius: const BorderRadius.all(
                       Radius.circular(30),
                     ),
                     child: BottomNavigationBar(
@@ -62,13 +62,13 @@ class _MainScreenState extends State<MainScreen> {
                       },
                       items: [
                         BottomNavigationBarItem(
-                          icon: Icon(Icons.home),
+                          icon: const Icon(Icons.home),
                           label: 'Home',
                           backgroundColor: Colors.grey[200],
                         ),
                         BottomNavigationBarItem(
                           backgroundColor: Colors.grey[200],
-                          icon: Icon(Icons.favorite),
+                          icon: const Icon(Icons.favorite),
                           label: 'Fav',
                         ),
                         // BottomNavigationBarItem(
@@ -78,7 +78,7 @@ class _MainScreenState extends State<MainScreen> {
                         // ),
                         BottomNavigationBarItem(
                           backgroundColor: Colors.grey[200],
-                          icon: Icon(Icons.settings),
+                          icon: const Icon(Icons.settings),
                           label: 'Settings',
                         ),
                       ],

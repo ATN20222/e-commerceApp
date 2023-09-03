@@ -66,7 +66,7 @@ class FavouriteProductCard extends StatelessWidget {
                 children: [
                   Text(
                     "\$ ${product.price}",
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontFamily: "display",
                       fontSize: 18,
                       fontWeight: FontWeight.w400,

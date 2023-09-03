@@ -1,4 +1,3 @@
-import 'package:ecommerce/constants/app_colors.dart';
 import 'package:ecommerce/models/product.dart';
 import 'package:ecommerce/screens/product_details.dart';
 import 'package:flutter/material.dart';
@@ -53,9 +52,9 @@ class ProductCard2 extends StatelessWidget {
                 children: [
                   ClipRRect(
                     borderRadius:
-                        BorderRadius.vertical(top: Radius.circular(10)),
+                        const BorderRadius.vertical(top: Radius.circular(10)),
                     child: Image.network(
-                      '${product.thumbnail}',
+                      product.thumbnail,
                       fit: BoxFit.fitHeight,
                       height: 120,
                     ),
@@ -90,12 +89,12 @@ class ProductCard2 extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               SizedBox(
                 width: 150,
                 child: Text(
                   product.title,
-                  style: TextStyle(
+                  style: const TextStyle(
                     overflow: TextOverflow.ellipsis,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
