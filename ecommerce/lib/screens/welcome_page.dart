@@ -81,8 +81,18 @@ class WelcomePage extends StatelessWidget {
             ElevatedButton(
               onPressed: () async {
                 try {
+                  showDialog(
+                      context: context,
+                      builder: (context) {
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      });
+
                   final user = await FireBaseHelper().signInWithGoogle();
                   if (user != null) {
+                    Navigator.pop(context);
+
                     Navigator.of(context).pushReplacement(MaterialPageRoute(
                         builder: (context) => const MainScreen()));
                   } else {

@@ -22,138 +22,185 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 70),
-        width: MediaQuery.of(context).size.width,
-        child: SingleChildScrollView(
-          child: Form(
-            key: formKey,
-            child: Container(
-              child: Column(
-                children: <Widget>[
-                  Image.asset(
-                    'assets/images/LoginImage.jpg',
-                    width: 180,
-                    height: 180,
-                  ),
-                  const SizedBox(
-                    height: 80,
-                  ),
-                  const Text(
-                    'Sign in your account',
-                    style: TextStyle(
-                      color: Color.fromARGB(220, 158, 158, 158),
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 40.0),
+          child: Column(
+            children: [
+              Form(
+                key: formKey,
+                child: Column(
+                  children: <Widget>[
+                    Image.asset(
+                      'assets/images/LoginImage.jpg',
+                      width: 180,
+                      height: 180,
                     ),
-                  ),
-                  const SizedBox(
-                    height: 50,
-                  ),
-                  TextFormField(
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return errorText;
-                      }
-                      return null;
-                    },
-                    controller: emailController,
-                    decoration: InputDecoration(
-                      border: const OutlineInputBorder(),
-                      filled: true,
-                      hintText: 'Email',
-                      prefixIcon: const Icon(Icons.email),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30),
-                        borderSide: const BorderSide(
-                          color: Color.fromARGB(255, 158, 158, 158),
-                          width: 1.0,
-                        ),
-                      ),
-                      disabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30),
-                        borderSide: const BorderSide(
-                          color: Colors.white,
-                          width: 1.0,
-                        ),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30),
-                        borderSide: const BorderSide(
-                          color: Colors.white,
-                          width: 1.0,
-                        ),
+                    const SizedBox(
+                      height: 80,
+                    ),
+                    const Text(
+                      'Sign in your account',
+                      style: TextStyle(
+                        color: Color.fromARGB(220, 158, 158, 158),
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 30),
-                  TextFormField(
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return errorText;
-                      }
-                      return null;
-                    },
-                    controller: passwordController,
-                    obscureText: pass,
-                    decoration: InputDecoration(
-                      filled: true,
-                      hintText: 'Password',
-                      prefixIcon: const Icon(Icons.password),
-                      suffixIcon: IconButton(
-                        icon: !pass
-                            ? const Icon(Icons.remove_red_eye_outlined)
-                            : const Icon(Icons.visibility_off),
-                        onPressed: () {
-                          setState(() {
-                            pass = !pass;
-                          });
-                        },
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30),
-                        borderSide: const BorderSide(
-                          color: Color.fromARGB(255, 158, 158, 158),
-                          width: 1.0,
-                        ),
-                      ),
-                      disabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30),
-                        borderSide: const BorderSide(
-                          color: Colors.white,
-                          width: 1.0,
-                        ),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30),
-                        borderSide: const BorderSide(
-                          color: Colors.white,
-                          width: 1.0,
-                        ),
-                      ),
+                    const SizedBox(
+                      height: 50,
                     ),
-                  ),
-                  const SizedBox(height: 60),
-                  CustomButton(text: "Login", onTapAction: signInAction),
-                  const SizedBox(height: 20),
-                  GestureDetector(
-                    child: MaterialButton(
-                      onPressed: () {
-                        Navigator.of(context).pushReplacement(MaterialPageRoute(
-                            builder: (context) => const SignUp()));
+                    TextFormField(
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return errorText;
+                        }
+                        return null;
                       },
-                      child: const Text(
-                        'Sign Up',
-                        style: TextStyle(
-                            color: Color.fromARGB(255, 211, 191, 11),
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold),
+                      controller: emailController,
+                      decoration: InputDecoration(
+                        border: const OutlineInputBorder(),
+                        filled: true,
+                        hintText: 'Email',
+                        prefixIcon: const Icon(Icons.email),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                          borderSide: const BorderSide(
+                            color: Color.fromARGB(255, 158, 158, 158),
+                            width: 1.0,
+                          ),
+                        ),
+                        disabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                          borderSide: const BorderSide(
+                            color: Colors.white,
+                            width: 1.0,
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                          borderSide: const BorderSide(
+                            color: Colors.white,
+                            width: 1.0,
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                    const SizedBox(height: 30),
+                    TextFormField(
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return errorText;
+                        }
+                        return null;
+                      },
+                      controller: passwordController,
+                      obscureText: pass,
+                      decoration: InputDecoration(
+                        filled: true,
+                        hintText: 'Password',
+                        prefixIcon: const Icon(Icons.password),
+                        suffixIcon: IconButton(
+                          icon: !pass
+                              ? const Icon(Icons.remove_red_eye_outlined)
+                              : const Icon(Icons.visibility_off),
+                          onPressed: () {
+                            setState(() {
+                              pass = !pass;
+                            });
+                          },
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                          borderSide: const BorderSide(
+                            color: Color.fromARGB(255, 158, 158, 158),
+                            width: 1.0,
+                          ),
+                        ),
+                        disabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                          borderSide: const BorderSide(
+                            color: Colors.white,
+                            width: 1.0,
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                          borderSide: const BorderSide(
+                            color: Colors.white,
+                            width: 1.0,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    CustomButton(text: "Login", onTapAction: signInAction),
+                    const SizedBox(height: 10),
+                  ],
+                ),
               ),
-            ),
+              const Text("Or"),
+              ElevatedButton(
+                onPressed: () async {
+                  try {
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return const Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        });
+                    final user = await FireBaseHelper().signInWithGoogle();
+                    if (user != null) {
+                      Navigator.pop(context);
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (context) => const MainScreen()));
+                    } else {
+                      print('Sign-in with Google failed.');
+                    }
+                  } catch (e) {
+                    print('Error signing in with Google: $e');
+                  }
+                },
+                child: const Text('Sign in with Google'),
+              ),
+              const SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.only(left: 58),
+                child: TextButton(
+                  onPressed: () {},
+                  child: Row(
+                    children: [
+                      const Text(
+                        "Don't have account? ",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontFamily: "display",
+                        ),
+                      ),
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const SignUp(),
+                            ),
+                          );
+                        },
+                        child: const Text(
+                          'Sign Up',
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 157, 114, 16),
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),
