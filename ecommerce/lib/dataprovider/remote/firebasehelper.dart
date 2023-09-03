@@ -71,6 +71,7 @@
 import 'package:ecommerce/providers/custom_api_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:restart_app/restart_app.dart';
 
 class FireBaseHelper {
   FirebaseAuth _auth = FirebaseAuth.instance;
@@ -163,5 +164,6 @@ class FireBaseHelper {
   Future<dynamic> signOut() async {
     await _auth.signOut();
     await _googleSignIn.signOut();
+    Restart.restartApp();
   }
 }
